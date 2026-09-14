@@ -56,3 +56,132 @@
   background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf);
 }
 .tiktok { background: #111; }
+/* ===== Sweets Folder Gallery ===== */
+
+.sweets-gallery-section {
+  display: none;
+  padding: 70px 0;
+  animation: folderOpen 0.4s ease;
+}
+
+.sweets-gallery-section.active {
+  display: block;
+}
+
+.gallery-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.back-to-products {
+  border: none;
+  background: var(--purple);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+
+@keyframes folderOpen {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+.open-gallery {
+  margin-top: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #5b21b6;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.open-gallery::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  width: 45px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff7a00, #6f2dbd);
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.open-gallery b {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4b168c, #7c3aed);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 18px;
+  box-shadow: 0 6px 15px rgba(75, 22, 140, 0.25);
+  transition: 0.3s ease;
+}
+
+.open-gallery:hover {
+  color: #ff7a00;
+}
+
+.open-gallery:hover::after {
+  width: 100%;
+}
+
+.open-gallery:hover b {
+  transform: translateX(-5px) rotate(8deg);
+  background: linear-gradient(135deg, #ff7a00, #ff9d00);
+}

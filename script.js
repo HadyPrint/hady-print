@@ -29,3 +29,29 @@ ${details}`;
     '_blank'
   );
 });
+// ===== Sweets Folder Gallery =====
+
+const sweetsCard = document.getElementById('sweetsCard');
+const productsSection = document.getElementById('products');
+const sweetsGallery = document.getElementById('sweetsGallery');
+const backToProducts = document.getElementById('backToProducts');
+
+sweetsCard?.addEventListener('click', () => {
+  productsSection.style.display = 'none';
+  sweetsGallery.classList.add('active');
+
+  window.scrollTo({
+    top: sweetsGallery.offsetTop - 20,
+    behavior: 'smooth'
+  });
+});
+
+backToProducts?.addEventListener('click', () => {
+  sweetsGallery.classList.remove('active');
+  productsSection.style.display = '';
+
+  window.scrollTo({
+    top: productsSection.offsetTop - 20,
+    behavior: 'smooth'
+  });
+});
